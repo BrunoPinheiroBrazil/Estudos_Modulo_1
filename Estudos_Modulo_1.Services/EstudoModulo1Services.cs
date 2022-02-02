@@ -2,11 +2,16 @@
 {
   public interface IEstudoModulo1Services
   {
-    public int Soma2Mais2();
-    public double RaizQuadrada(int valor);
-    public int MultiplicaPorDez(int valor);
-    public int DividePorDois(int valor);
-    public string RetornaShrek();
+    int Soma2Mais2();
+    double RaizQuadrada(int valor);
+    int MultiplicaPorDez(int valor);
+    int DividePorDois(int valor);
+    string RetornaShrek();
+    string RetornaInicialEFinal(string palavraInteira);
+    string RetornaPosicao4DaStringPassada(string palavraInteira);
+    string BuscaPosicaoQuatro(IEnumerable<string> listaDeTios);
+    int ContaLista(List<string> listaDeTios);
+    string BuscaTioPosicaoPersonalizada(List<string> listaDeTios, int posicao);
   }
   public class EstudoModulo1Services : IEstudoModulo1Services
   {
@@ -39,6 +44,31 @@
     {
       var soma = 2 + 2;
       return soma;
+    }
+
+    public string RetornaInicialEFinal(string palavraInteira)
+    {
+      throw new NotImplementedException();
+    }
+
+    public string RetornaPosicao4DaStringPassada(string palavraInteira)
+    {
+      throw new NotImplementedException();
+    }
+
+    public string BuscaPosicaoQuatro(IEnumerable<string> listaDeTios)
+    {
+      throw new NotImplementedException();
+    }
+
+    public int ContaLista(List<string> listaDeTios)
+    {
+      throw new NotImplementedException();
+    }
+
+    public string BuscaTioPosicaoPersonalizada(List<string> listaDeTios, int posicao)
+    {
+      throw new NotImplementedException();
     }
     #endregion
   }
