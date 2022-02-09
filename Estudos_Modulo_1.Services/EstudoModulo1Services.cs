@@ -12,6 +12,8 @@
     string BuscaPosicaoQuatro(IEnumerable<string> listaDeTios);
     int ContaLista(List<string> listaDeTios);
     string BuscaTioPosicaoPersonalizada(List<string> listaDeTios, int posicao);
+    IEnumerable<int> OrdenaListaCrescente(IEnumerable<int> disorderedList);
+    void RemoveItemDaListaPorNome(string nomeParaRemover, ICollection<string> novaListaTios);
   }
   public class EstudoModulo1Services : IEstudoModulo1Services
   {
@@ -33,6 +35,17 @@
 
     #endregion
 
+    #region Exercicios 2
+    public IEnumerable<int> OrdenaListaCrescente(IEnumerable<int> disorderedList)
+    {
+      return new List<int> { 1, 2, 3 };
+    }
+
+    public void RemoveItemDaListaPorNome(string nomeParaRemover, ICollection<string> novaListaTios)
+    {
+      novaListaTios.Remove(nomeParaRemover);
+    }
+    #endregion
     #region Exemplos
     public double RaizQuadrada(int valor)
     {

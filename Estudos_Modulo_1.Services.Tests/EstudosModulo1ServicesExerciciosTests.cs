@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using Xunit;
 
 namespace Estudos_Modulo_1.Services.Tests
@@ -139,6 +135,56 @@ namespace Estudos_Modulo_1.Services.Tests
 
       //Assert
       Assert.Equal(tioEsperado, tioEncontrado);
+    }
+
+    [MemberData(nameof(OrdemCrescenteData))]
+    [Theory(DisplayName = "Teste Método Exercicio 2 [Sucesso] - O metodo deve ordenar a lista passada em ordem crescente")]
+    public void Retorna_Lista_Ordem_Crescente(IEnumerable<int> disorderedList, IEnumerable<int> expectedOrdenedList)
+    {
+      //Arrange
+      //Act
+      var currentOrderedList = _services.OrdenaListaCrescente(disorderedList);
+
+      //Assert
+      Assert.Equal(currentOrderedList, expectedOrdenedList);
+    }
+
+    [InlineData("NENA")]
+    [InlineData("GILMAR")]
+    [InlineData("LUCIVANIA")]
+    [InlineData("JORGE")]
+    [Theory(DisplayName = "Teste Método Exercicios 2 [Sucesso] - O metodo deve remover o item da lista pela palavra passada por parâmetro")]
+    public void Remove_Item_Da_Lista_Pelo_Nome(string nomeParaRemover)
+    {
+      //Arrange
+      var novaListaTios = new List<string>
+      {
+        "GEU",
+        "ANGELA",
+        "GILMAR",
+        "TERA",
+        "JOCIVANIA",
+        "LUCIVANIA",
+        "NENA",
+        "ICA",
+        "JORGE"
+      };
+
+      //Act
+      _services.RemoveItemDaListaPorNome(nomeParaRemover, novaListaTios);
+
+      //Assert
+      Assert.Equal(8, novaListaTios.Count);
+      Assert.Null(novaListaTios.Find(n => n == nomeParaRemover));
+    }
+
+    public static IEnumerable<object[]> OrdemCrescenteData()
+    {
+      yield return new object[] { new List<int> { 3, 2, 1 }, new List<int> { 1, 2, 3 } };
+      yield return new object[] { new List<int> { 5, 4, 3, 2, 1 }, new List<int> { 1, 2, 3, 4, 5 } };
+      yield return new object[] { new List<int> { 3, 2, 5, 4, 1 }, new List<int> { 1, 2, 3, 4, 5 } };
+      yield return new object[] { new List<int> { 10, 9, 8, 7, 6, 5, 4, 3, 2, 1 }, new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 } };
+      yield return new object[] { new List<int> { 5, 2, 3, 1, 8, 10, 7, 4, 6, 9 }, new List<int> { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 } };
     }
   }
 }
