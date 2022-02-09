@@ -43,7 +43,7 @@
 
     public void RemoveItemDaListaPorNome(string nomeParaRemover, ICollection<string> novaListaTios)
     {
-      novaListaTios.Remove(nomeParaRemover);
+      var lista = novaListaTios;
     }
     #endregion
     #region Exemplos
