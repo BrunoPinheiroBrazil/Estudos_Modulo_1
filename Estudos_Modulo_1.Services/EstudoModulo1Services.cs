@@ -8,7 +8,7 @@
     int DividePorDois(int valor);
     string RetornaShrek();
     string RetornaInicialEFinal(string palavraInteira);
-    string RetornaPosicao4DaStringPassada(string palavraInteira);
+    string RetornaAQuartaLetraDaPalavraPassada(string palavraInteira);
     string BuscaPosicaoQuatro(IEnumerable<string> listaDeTios);
     int ContaLista(List<string> listaDeTios);
     string BuscaTioPosicaoPersonalizada(List<string> listaDeTios, int posicao);
@@ -18,17 +18,17 @@
     #region Exercicios
     public int DividePorDois(int valor)
     {
-      return 0;
+      return valor / 2;
     }
 
     public int MultiplicaPorDez(int valor)
     {
-      return 0;
+      return valor * 10;
     }
 
     public string RetornaShrek()
     {
-      return "";
+      return "Shrek";
     }
 
     #endregion
@@ -48,27 +48,35 @@
 
     public string RetornaInicialEFinal(string palavraInteira)
     {
-      throw new NotImplementedException();
+      var primeiraLetra = palavraInteira.First();
+      var ultimaLetra = palavraInteira.Last();
+      return $"{primeiraLetra}{ultimaLetra}";
     }
 
-    public string RetornaPosicao4DaStringPassada(string palavraInteira)
+    public string RetornaAQuartaLetraDaPalavraPassada(string palavraInteira)
     {
-      throw new NotImplementedException();
+      return palavraInteira.Substring(3, 1);
     }
 
     public string BuscaPosicaoQuatro(IEnumerable<string> listaDeTios)
     {
-      throw new NotImplementedException();
+      return listaDeTios.ToList()[3];
     }
 
     public int ContaLista(List<string> listaDeTios)
     {
-      throw new NotImplementedException();
+      return listaDeTios.Count();
     }
 
     public string BuscaTioPosicaoPersonalizada(List<string> listaDeTios, int posicao)
     {
-      throw new NotImplementedException();
+      if (posicao < 0)
+        posicao = 0;
+
+      if (posicao > listaDeTios.Count() - 1)
+        return listaDeTios.Last();
+
+      return listaDeTios[posicao];
     }
     #endregion
   }

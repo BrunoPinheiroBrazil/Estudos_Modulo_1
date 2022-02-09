@@ -75,7 +75,7 @@ namespace Estudos_Modulo_1.Services.Tests
       var palavraInteira = "TIANENA";
 
       //Act
-      var letraPosicaoObtida = _services.RetornaPosicao4DaStringPassada(palavraInteira);
+      var letraPosicaoObtida = _services.RetornaAQuartaLetraDaPalavraPassada(palavraInteira);
 
       //Assert
       Assert.Equal("N", letraPosicaoObtida);
@@ -112,7 +112,7 @@ namespace Estudos_Modulo_1.Services.Tests
     [InlineData(0, "TIO JORGE")]
     [InlineData(10, "TIO DIRCEU")]
     [InlineData(11, "TIO DIRCEU")]
-    [InlineData(9, "TIA TERA")]
+    [InlineData(8, "TIA TERA")]
     [InlineData(-1, "TIO JORGE")]
     [Theory(DisplayName = "Teste Método Exercício 1 [Sucesso] - Retornar a posição pedida por parametro para " +
       "o metodo e se a posição pedida for maior que o tamanho, retornar o último item da lista " +
